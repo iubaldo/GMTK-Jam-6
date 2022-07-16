@@ -2,14 +2,19 @@ extends Node
 class_name CombatManager
 # handles combat mechanics
 
+onready var player = preload("res://Scenes/Player.tscn")
+onready var testEnemy = preload("res://Scripts/Enemies/EnemyTypes/TestEnemy.gd")
+onready var playerSpawn = $PlayerSpawn
+onready var enemySpawn = $EnemySpawn
+onready var diceSpawn = $DiceSpawn
+
 signal battleOver
 
 var enemy
-var playerHP = 10
+
 var turn: int
 
-var dicePouch = []
-var pouchSize: int = 3
+
 
 
 func initialize(p_enemy: Enemy):
@@ -18,6 +23,7 @@ func initialize(p_enemy: Enemy):
 
 
 func preparation():
+	
 	pass
 
 

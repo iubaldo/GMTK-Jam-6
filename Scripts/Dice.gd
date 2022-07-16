@@ -14,14 +14,24 @@ var crit: int
 var advantage: int
 
 var dieSymbols = []
+var selectedSymbol
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _init(p_dieSymbols: Array, p_sides: int, p_cooldown: int, p_minPower: int, p_maxPower: int, p_crit: int, p_advantage: int):
+	dieSymbols = p_dieSymbols
+	sides = p_sides
+	cooldown = p_cooldown
+	minPower = p_minPower
+	maxPower = p_maxPower
+	crit = p_crit
+	advantage = p_advantage
 	
 
-func rollSymbol() -> Symbol:
+func _ready():
+	symbolSprite.playing = true
+
+
+func rollSymbol():
 	var idx = dieSymbols[randi() % dieSymbols.size()]
 	var symbol: Symbol = dieSymbols[idx]
 	
@@ -36,4 +46,9 @@ func rollSymbol() -> Symbol:
 		Symbol.types.keen: symbolSprite.frame = 2
 		Symbol.types.quick: symbolSprite.frame = 4
 	
-	return symbol
+	selectedSymbol = symbol
+
+
+func _on_Timer_timeout():
+	symbolSprite.playing = false
+	rollSymbol()

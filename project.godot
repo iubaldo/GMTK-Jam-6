@@ -25,20 +25,33 @@ _global_script_classes=[ {
 "path": "res://Scripts/Enemies/Enemy.gd"
 }, {
 "base": "Node",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scripts/Player.gd"
+}, {
+"base": "Node",
 "class": "Symbol",
 "language": "GDScript",
 "path": "res://Scripts/Symbol.gd"
+}, {
+"base": "Enemy",
+"class": "TestEnemy",
+"language": "GDScript",
+"path": "res://Scripts/Enemies/EnemyTypes/TestEnemy.gd"
 } ]
 _global_script_class_icons={
 "CombatManager": "",
 "Dice": "",
 "Enemy": "",
-"Symbol": ""
+"Player": "",
+"Symbol": "",
+"TestEnemy": ""
 }
 
 [application]
 
 config/name="GMTK Jam 6"
+run/main_scene="res://Scenes/Die.tscn"
 
 [autoload]
 

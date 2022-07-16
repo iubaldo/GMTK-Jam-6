@@ -1,5 +1,10 @@
-extends Enemy
-class_name TestEnemy
+extends Node
+class_name Player
+
+var hp: int = 30
+
+var dicePouch = []
+var pouchSize: int = 3
 
 
 func _init():
