@@ -8,9 +8,41 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "CombatManager",
+"language": "GDScript",
+"path": "res://Scripts/CombatManager.gd"
+}, {
+"base": "Node",
+"class": "Dice",
+"language": "GDScript",
+"path": "res://Scripts/Dice.gd"
+}, {
+"base": "Node",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Scripts/Enemies/Enemy.gd"
+}, {
+"base": "Node",
+"class": "Symbol",
+"language": "GDScript",
+"path": "res://Scripts/Symbol.gd"
+} ]
+_global_script_class_icons={
+"CombatManager": "",
+"Dice": "",
+"Enemy": "",
+"Symbol": ""
+}
+
 [application]
 
 config/name="GMTK Jam 6"
+
+[autoload]
+
+Globals="*res://Scripts/Globals.gd"
 
 [physics]
 
