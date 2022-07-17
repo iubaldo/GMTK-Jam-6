@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/symbols/force.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/symbols/forcekeen.png" type="Texture" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Scripts/Die.gd" type="Script" id=9]
 [ext_resource path="res://Fonts/Spectral-Regular.tres" type="DynamicFont" id=10]
 
+[sub_resource type="PhysicsMaterial" id=3]
+bounce = 0.3
+
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -22,34 +25,37 @@ animations = [ {
 } ]
 
 [node name="Die" type="RigidBody2D"]
+physics_material_override = SubResource( 3 )
+gravity_scale = 5.0
 script = ExtResource( 9 )
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
 
-[node name="DieBG" type="Sprite" parent="Collider"]
-position = Vector2( 1.90735e-06, 1.90735e-06 )
-scale = Vector2( 0.15625, 0.15625 )
+[node name="DieBG" type="Sprite" parent="."]
+position = Vector2( 5.72205e-06, 5.72205e-06 )
+scale = Vector2( 0.46875, 0.46875 )
 texture = ExtResource( 8 )
 
-[node name="DieSymbol" type="AnimatedSprite" parent="Collider"]
-position = Vector2( 4.76837e-07, 3.57628e-07 )
-scale = Vector2( 0.15625, 0.15625 )
+[node name="DieSymbol" type="AnimatedSprite" parent="."]
+position = Vector2( 1.43051e-06, 1.07288e-06 )
+scale = Vector2( 0.46875, 0.46875 )
 frames = SubResource( 2 )
 speed_scale = 7.0
+playing = true
 
-[node name="DieFrame" type="Sprite" parent="Collider"]
-position = Vector2( -1.90735e-06, -1.90735e-06 )
-scale = Vector2( 0.15625, 0.15625 )
+[node name="DieFrame" type="Sprite" parent="."]
+position = Vector2( -5.72205e-06, -5.72205e-06 )
+scale = Vector2( 0.46875, 0.46875 )
 texture = ExtResource( 3 )
 
-[node name="ValueLabel" type="Label" parent="Collider"]
+[node name="ValueLabel" type="Label" parent="."]
 visible = false
-margin_left = -7.0
-margin_top = -19.6667
-margin_right = 23.0
-margin_bottom = 5.33333
+margin_left = -21.0
+margin_top = -59.0001
+margin_right = 9.0
+margin_bottom = -34.0001
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 10 )
@@ -57,9 +63,9 @@ text = "0 - 6"
 align = 1
 valign = 1
 
-[node name="RollTimer" type="Timer" parent="Collider"]
+[node name="RollTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="Collider/RollTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="RollTimer" to="." method="_on_RollTimer_timeout"]

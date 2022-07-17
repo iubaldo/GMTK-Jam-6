@@ -12,5 +12,6 @@ func _init():
 		Symbol.new(Symbol.types.force, 1, 3) ,Symbol.new(Symbol.types.force, 1, 3)]
 		
 	hp = 30
-	dicePouch = [Die.new(symbolList, 4, 2, 1, 1, 5, 1), Die.new(symbolList, 4, 2, 1, 1, 5, 1), 
-		Die.new(symbolList, 4, 2, 1, 1, 5, 1)]
+	dicePouch = [Die.new(symbolList, 2, 1, 1, 5, 1), Die.new(symbolList, 2, 1, 1, 5, 1), 
+		Die.new(symbolList, 2, 1, 1, 5, 1)]
+

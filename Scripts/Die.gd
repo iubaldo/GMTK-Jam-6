@@ -4,7 +4,6 @@ class_name Die
 
 onready var symbolSprite = $DieSymbol
 
-var sides: int 
 var cooldown: int
 var remainingCD: int
 var minPower: int
@@ -17,9 +16,13 @@ var dieSymbols = []
 var selectedSymbol
 
 
-func _init(p_dieSymbols: Array, p_sides: int, p_cooldown: int, p_minPower: int, p_maxPower: int, p_crit: int, p_advantage: int):
+var defaultSymbolList = [Symbol.new(Symbol.types.force, 1, 3), Symbol.new(Symbol.types.force, 1, 3), 
+	Symbol.new(Symbol.types.force, 1, 3) ,Symbol.new(Symbol.types.force, 1, 3)]
+	
+
+func _init(p_dieSymbols: Array = defaultSymbolList, p_cooldown: int = 1, p_minPower: int = 1, 
+	p_maxPower: int = 3, p_crit: int = 5, p_advantage: int = 1):
 	dieSymbols = p_dieSymbols
-	sides = p_sides
 	cooldown = p_cooldown
 	minPower = p_minPower
 	maxPower = p_maxPower
@@ -33,7 +36,6 @@ func _ready():
 
 func setData(data: Die):
 	dieSymbols = data.dieSymbols
-	sides = data.sides
 	cooldown = data.cooldown
 	minPower = data.minPower
 	maxPower = data.maxPower
@@ -42,11 +44,10 @@ func setData(data: Die):
 
 
 func rollSymbol():
-	var idx = dieSymbols[randi() % dieSymbols.size()]
-	var symbol: Symbol = dieSymbols[idx]
-	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
+		
+	var symbol: Symbol = dieSymbols[rng.randi() % dieSymbols.size()]
 	
 	power = (rng.randi_range(minPower, maxPower))
 	symbol.rollValue(power)
@@ -59,6 +60,7 @@ func rollSymbol():
 	selectedSymbol = symbol
 
 
-func _on_Timer_timeout():
+func _on_RollTimer_timeout():
 	symbolSprite.playing = false
 	rollSymbol()
+	

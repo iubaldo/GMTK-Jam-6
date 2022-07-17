@@ -32,6 +32,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="DiceSpawn" type="Node2D" parent="."]
+position = Vector2( 512, -40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="WallCollisions" type="Node2D" parent="."]
 
 [node name="floor" type="StaticBody2D" parent="WallCollisions"]
@@ -55,5 +61,6 @@ position = Vector2( 951, 0 )
 position = Vector2( 36.25, 267 )
 shape = SubResource( 2 )
 
-[node name="DiceSpawn" type="Node2D" parent="."]
-position = Vector2( 512, -40 )
+[node name="PlayerDice" type="Node2D" parent="."]
+
+[node name="EnemyDice" type="Node2D" parent="."]
