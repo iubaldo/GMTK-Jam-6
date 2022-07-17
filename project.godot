@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://Scripts/CombatManager.gd"
 }, {
 "base": "Node",
-"class": "Dice",
+"class": "Die",
 "language": "GDScript",
-"path": "res://Scripts/Dice.gd"
+"path": "res://Scripts/Die.gd"
 }, {
 "base": "Node",
 "class": "Enemy",
@@ -41,7 +41,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CombatManager": "",
-"Dice": "",
+"Die": "",
 "Enemy": "",
 "Player": "",
 "Symbol": "",
@@ -51,11 +51,19 @@ _global_script_class_icons={
 [application]
 
 config/name="GMTK Jam 6"
-run/main_scene="res://Scenes/Die.tscn"
+run/main_scene="res://Scenes/Combat Scene.tscn"
 
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+
+[input]
+
+test_roll={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 

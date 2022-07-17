@@ -1,5 +1,5 @@
 extends Node
-class_name Dice
+class_name Die
 # defines dice used in combat
 
 onready var symbolSprite = $DieSymbol
@@ -29,6 +29,16 @@ func _init(p_dieSymbols: Array, p_sides: int, p_cooldown: int, p_minPower: int, 
 
 func _ready():
 	symbolSprite.playing = true
+
+
+func setData(data: Die):
+	dieSymbols = data.dieSymbols
+	sides = data.sides
+	cooldown = data.cooldown
+	minPower = data.minPower
+	maxPower = data.maxPower
+	crit = data.crit
+	advantage = data.advantage
 
 
 func rollSymbol():

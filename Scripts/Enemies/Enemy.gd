@@ -1,10 +1,13 @@
 extends Node
 class_name Enemy
 
+enum enemyTypes { testEnemy }
+var type: int
+
 var hp
 var dicePouch = []
 
-var selectedDie: Dice
+var selectedDie: Die
 
 func rollDice():
 	selectedDie = dicePouch[randi() % dicePouch.size()]
